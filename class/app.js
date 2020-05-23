@@ -5,7 +5,8 @@ const notification = document.getElementsByClassName('notification')[0];
 let weather;
 
 const kelvin = 273.15;
-kelvin=kelvin+t;
+//kelvin=kelvin+t
+
 
 getLocation();
 function getLocation() {
@@ -39,9 +40,10 @@ function onSuccess(position) {
             });
 }
 
+
 function render(temp){
-    let myElement = document.querySelector("#temp");
-    myElement.innerText = temp;
+    let myElement = document.querySelector ("#temp");
+    myElement.innerText=kelvinToCelsius (temp.main.temp).toFixed(1);
 }
 
 function onError(error) {
