@@ -101,3 +101,61 @@ var mentors = [
 
 //YOUR CODE HERE
 
+// 1. Loop through the array, and for each object, `console.log()` out the sentence only for
+//mentors that are in Barcelona and one of the skills is React
+//"Hi, my name is {firstName} {lastName}. I work in Barcelona and i know React."
+function greeting(mentor) {
+  console.log(
+    "Hi, my name is " +
+      mentor.firstName +
+      " " +
+      mentor.lastName +
+      "." +
+      " I work in Barcelona and I know React."
+  );
+}  
+function mentorsinBcn(mentor) {
+  return mentor.job.city === "Barcelona" && mentor.skills.includes("React");
+}
+const bcnMentors = mentors.filter(mentorsinBcn);
+bcnMentors.forEach(greeting);
+
+//2. To those that work in Barcelona, set "Jun1" in the class attribute, 
+//and add a new skill to the list "SQL".
+function updateData(mentor) {
+  mentor.class = "Jun1";
+  mentor.skills.push("SQL");
+}
+bcnMentors.forEach(updateData);
+
+//3. Create an object method with the name .addSkill() to be able to add skills from it
+//4. Create a function to add a skill to all members in a list of mentors
+function addSkill(mentors, newSkill) {
+  mentors.forEach(function (mentor) {
+    mentor.skills.push(newSkill);
+  });
+}
+
+//5. Create a function to remove a skill to all members in a list of mentors
+function removeSkill(mentors, skill) {
+  mentors.forEach(function (mentor) {
+    let index = mentor.skills.indexOf(skill);
+    mentor.skills.splice(index, 1);
+  });
+}
+
+//6. Create a function mentorWithMoreSkills() that returns the name of the mentor with more number of skills
+let mentorWithMostSkills = []
+mentors.map(mentor => {
+  mentorWithMostSkills.push(mentor.skills.length)
+});
+let maxSkills = mentorWithMostSkills.indexOf(Math.max(...mentorWithMostSkills));
+console.log("Mentor with  most skills is " + mentors[maxSkills].firstName);
+
+//7. Create an object method .addStudentLikes() that increments by one the attribute studentLikes
+//8. Create a function that adds a student like to all mentors in the array
+mentors.addLikes = function () {
+  this.map((mentor) => (mentor.studentLikes += 1));
+};
+mentors.addLikes(); 
+mentors.map((mentor) => console.log(mentor.studentLikes));
