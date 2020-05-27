@@ -60,8 +60,35 @@ var movies = [
 
 // create showMovies function
 
+function showMovies(movies){
+ let allMovies = document.getElementById("movies-number");
+ allMovies.innerHTML = movies.length;
+ movies.forEach (movie => {
+   let p = document.createElement ("p");
+   let displayMovies = document.getElementById ("all-movies");
+   displayMovies.appendChild (p);
+   p.innerHTML = movie.title + " , " + movie.director;
+ })
+}
+
+
 
 // create a new movie object for your favorite movie
 
-
+let myMovie = 
+{
+  title: "The Science of Sleep",
+  director: "Michel Gondry",
+  type: "fantasy",
+  haveWatched: true,
+}
 // create addMovies function
+
+function addMovies(newMovie, callback){
+setTimeout(()=> {
+  movies.push (newMovie)
+  setTimeout (() => callback (movies), 1000)
+}, 2000);
+}
+
+addMovies(myMovie, showMovies)
