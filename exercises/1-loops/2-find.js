@@ -31,3 +31,28 @@ const citiesArray = ["Amsterdam", "Athens", "Barcelona", "Madrid"];
 
 console.log("Number of cities with A = " + find(citiesArray, 'A'));
 console.log("Number of cities with B = " + find(citiesArray, 'B'));
+
+/*function find(cities, letter){
+	var counter = 0;
+	
+	for (let i=0; i<cities.length; i++){
+		counter=counter + charCounter(cities[i], letter)
+	}
+	
+	return counter;
+}
+function charCounter(str, letter){
+	let counter = 0;
+	for (let i=0;i<str.length;i++){
+		if (str[i].toUpperCase() == letter.toUpperCase()){
+			counter++;
+		}
+	}
+	return counter;
+}
+
+const citiesArray = ["Amsterdam", "Athens", "Barcelona", "Madrid"];
+
+
+console.log("Occurances of letter A = " + find(citiesArray, 'A'));
+console.log("Occurances of letter B = " + find(citiesArray, 'B'));*/
