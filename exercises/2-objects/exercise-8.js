@@ -120,6 +120,12 @@ function mentorsinBcn(mentor) {
 const bcnMentors = mentors.filter(mentorsinBcn);
 bcnMentors.forEach(greeting);
 
+/*for( let i=0; i<mentors.length;i++){
+  if(mentors[i].job.city==="Barcelona" && mentors.skills.includes("React")){
+    console.log(`Hi, my name is ${mentors[i].firstName} ${mentors[i].lastName}. I live in Barcelona and I know React`)
+  }
+}*/
+
 //2. To those that work in Barcelona, set "Jun1" in the class attribute, 
 //and add a new skill to the list "SQL".
 function updateData(mentor) {
@@ -127,6 +133,16 @@ function updateData(mentor) {
   mentor.skills.push("SQL");
 }
 bcnMentors.forEach(updateData);
+/*
+for( let i=0; i<mentors.length;i++){
+  if(mentors[i].job.city==="Barcelona"){
+    mentors[i].class ="Jun1";
+    if(!mentors[i].skills.includes("SQL")){
+    mentors[i].skills.push ("SQL");
+    }
+    console.log(`Hi, my name is ${mentors[i].firstName} ${mentors[i].lastName}. I live in Barcelona. Class is ${mentors[i].class} and skills ${mentors[i].skills}`)
+  }
+  */
 
 //3. Create an object method with the name .addSkill() to be able to add skills from it
 //4. Create a function to add a skill to all members in a list of mentors
@@ -135,6 +151,15 @@ function addSkill(mentors, newSkill) {
     mentor.skills.push(newSkill);
   });
 }
+
+/*
+function addSkill(listOfMentors, skillToAdd){
+  for( let i=0; i<mentors.length;i++){
+    if(!mentors[i].skills.includes("SQL")){
+    mentors[i].skills.push (skillToAdd);
+  }
+}
+*/ 
 
 //5. Create a function to remove a skill to all members in a list of mentors
 function removeSkill(mentors, skill) {
@@ -151,6 +176,19 @@ mentors.map(mentor => {
 });
 let maxSkills = mentorWithMostSkills.indexOf(Math.max(...mentorWithMostSkills));
 console.log("Mentor with  most skills is " + mentors[maxSkills].firstName);
+/*
+function mentorWithMostSkills(listOfMentors){
+  let mentorWithMostSkills = null;
+  let maxSkills = 0;
+  for( let i=0; i<mentors.length;i++){
+    if(listOfMentors[i].skills.length>maxSkills){
+    maxSkills = listOfmentors[i].skills.length;
+    mentorWithMostSkills = listOfMentors[i];
+
+}
+  }
+  return mentorWithMostSkills;
+  */
 
 //7. Create an object method .addStudentLikes() that increments by one the attribute studentLikes
 //8. Create a function that adds a student like to all mentors in the array

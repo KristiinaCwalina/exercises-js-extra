@@ -16,7 +16,7 @@ If you can, show the humidity and the image link given by the API object.
 function getPosition() {
     let userLat = document.getElementById("latitude").value;
     let userLon = document.getElementById("longitude").value;
-    if (userLat==null || userLon==null){
+    if (userLat=="" || userLon==""){
         alert ("Input fields can not be empty")
     } 
     else{
@@ -32,10 +32,10 @@ function getPosition() {
       .then((get) => {
         const temp = get.main.temp;
         const tempHtmlElement = document.getElementById("temperature");
-        tempHtmlElement.innerHTML = "<p>" + temp + "°<span>C</span></p>";
+        tempHtmlElement.innerHTML = "<p>" + "Temperature: " + temp + "°<span>C</span></p>";
         const humidity = get.main.humidity;
         const humidityHtmlElement = document.getElementById("humidity");
-        humidityHtmlElement.innerHTML = "<p>" + humidity + "°<span>C</span></p>";
+        humidityHtmlElement.innerHTML = "<p>" +"Humidity: " + humidity + "</p>";
       }
       )
     }
