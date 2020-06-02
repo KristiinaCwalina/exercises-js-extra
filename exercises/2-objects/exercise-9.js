@@ -50,13 +50,27 @@ var shoppingCart = {
   selectedProducts: []
 };
 
-function addToShoppingCart(id){
+function addToShoppingCart(id) {
+  let newProduct = products.find(function (p) {
+    return p.id === id;
+  }
+  );
+  if (newProduct.stock > 0) {
+    shoppingCart.totalPrice = shoppingCart.totalPrice + newProduct.price;
+    shoppingCart.selectedProducts.push(newProduct.name);
+    newProduct.stock -= 1;
+  }
 
 }
 
 function removeFromShoppingCart(id){
-
+  let removableProduct = products.find(function (p) {
+    return p.id === id;
 }
+};
+
+ 
+
 
 function shop(){
 
