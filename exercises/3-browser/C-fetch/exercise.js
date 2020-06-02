@@ -25,7 +25,7 @@ function getPosition() {
         "lat=" +
         userLat +
         "&lon=" +
-        userLon 
+        userLon
     );
     get
       .then((response) => response.json())
@@ -40,5 +40,7 @@ function getPosition() {
       )
     }
 }
-    getPosition()
+let button = document.getElementById("get");
+button.addEventListener("click", getPosition);
+  
    
