@@ -56,11 +56,10 @@ function addToShoppingCart(id) {
   }
   );
   if (newProduct.stock > 0) {
-    shoppingCart.totalPrice = shoppingCart.totalPrice + newProduct.price;
-    shoppingCart.selectedProducts.push(newProduct.name);
+    shoppingCart.totalPrice = shoppingCart.totalPrice +newProduct.price;
+    shoppingCart.selectedProducts.push(newProduct);
     newProduct.stock -= 1;
   }
-
 }
 
 function removeFromShoppingCart(id){
