@@ -84,12 +84,42 @@ let myMovie =
 }
 // create addMovies function
 
-function addMovies(newMovie, callback){
-setTimeout(()=> {
-  movies.push (newMovie)
-  setTimeout (() => callback (movies), 1000)
-}, 2000);
-}
+function addMovies(movie,callback){
+ 
 
-addMovies(myMovie, showMovies)
+  setTimeout(()=> {
+    movies.push (movie);
+  
+  setTimeout(()=> callback(movies), 1000)}, 2000);
+
+  }
+  
+
+ 
+function newInput(){
+let titleInput = document.getElementById("title").value;
+let directorInput = document.getElementById("director").value;
+let typeInput = document.getElementById("type").value;
+let haveWatchedOption = document.getElementById("haveWatched").value;
+let newMovie ={
+  title: titleInput,
+  director: directorInput,
+  type: typeInput,
+  haveWatched: haveWatchedOption
+}
+movies.push(newMovie);
+}
+  
+
+let button = document.getElementById("saveMovie");
+button.addEventListener("click", newInput);
+
+addMovies(myMovie, showMovies);
+
+
+
+ 
+
+
+ 
 
