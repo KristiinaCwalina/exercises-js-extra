@@ -41,9 +41,25 @@ var product2 = {
   price: 9.99,
   stock: 2
 };
+var product3 = {
+  id: 3,
+  name: "Watch Diesel",
+  price: 10.99,
+  stock: 4
+};
+var product4 = {
+  id: 4,
+  name: "Toaster Black",
+  price: 7.99,
+  stock: 1
+};
 
 products.push(product1);
 products.push(product2);
+products.push(product3);
+products.push(product4);
+
+
 
 var shoppingCart = {
   totalPrice: 0,
@@ -51,22 +67,26 @@ var shoppingCart = {
 };
 
 function addToShoppingCart(id) {
-  let newProduct = products.find(function (p) {
-    return p.id === id;
+
+  for(i=0; i<products.length;i++){
+    if(products[i].id==id){
+ if(products[i].stock>0){
+ shoppingCart.selectedProducts.push(products[i]);
+ shoppingCart.totalPrice=shoppingCart.totalPrice + products[i].price;
   }
-  );
-  if (newProduct.stock > 0) {
-    shoppingCart.totalPrice = shoppingCart.totalPrice +newProduct.price;
-    shoppingCart.selectedProducts.push(newProduct);
-    newProduct.stock -= 1;
+  break;
+}
   }
 }
 
 function removeFromShoppingCart(id){
-  let removableProduct = products.find(function (p) {
-    return p.id === id;
+for (let i=0; i<shoppingCart.length; i+=1){
+  if(shoppingCart[i].id===id){
+    shoppingCart.splice(i, 1)
+    return
+  }
 }
-};
+}
 
  
 
