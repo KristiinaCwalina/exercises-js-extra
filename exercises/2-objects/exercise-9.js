@@ -70,23 +70,27 @@ function addToShoppingCart(id) {
 
   for(i=0; i<products.length;i++){
     if(products[i].id==id){
- if(products[i].stock>0){
+       if(products[i].stock>0){
  shoppingCart.selectedProducts.push(products[i]);
  shoppingCart.totalPrice=shoppingCart.totalPrice + products[i].price;
-  }
-  break;
+        products[i].stock -=1;
 }
-  }
+        break;
+      }
+   }
 }
 
 function removeFromShoppingCart(id){
-for (let i=0; i<shoppingCart.length; i+=1){
-  if(shoppingCart[i].id===id){
-    shoppingCart.splice(i, 1)
-    return
-  }
+for (let i=0; i<shoppingCart.selectedProducts.length; i++){
+  if(shoppingCart.selectedProducts[i].id===id){
+    shoppingCart.selectedProducts.splice(i, 1);
+    shoppingCart.totalPrice-=shoppingCart.selectedProducts[i].price;
+ for (let j=0; j<products.length; j++){
+    if(products[j].id == id){
+      products[j]+=1;
+  }}
 }
-}
+}}
 
  
 
