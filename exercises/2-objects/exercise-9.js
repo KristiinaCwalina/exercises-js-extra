@@ -89,13 +89,18 @@ for (let i=0; i<shoppingCart.selectedProducts.length; i++){
     if(products[j].id == id){
       products[j]+=1;
   }}
+
+break;
+  }
 }
-}}
+}
 
  
 
 
 function shop(){
+  shoppingCart.totalPrice =0;
+  shoppingCart.selectedProducts = [];
 
 }
 
