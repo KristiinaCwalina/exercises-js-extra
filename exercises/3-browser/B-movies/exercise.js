@@ -58,6 +58,7 @@ var movies = [
   },
 ];
 
+
 // create showMovies function
 
 function showMovies(movies){
@@ -72,7 +73,6 @@ function showMovies(movies){
 }
 
 
-
 // create a new movie object for your favorite movie
 
 let myMovie = 
@@ -83,18 +83,16 @@ let myMovie =
   haveWatched: true,
 }
 // create addMovies function
-
-function addMovies(movie,callback){
+  function addMovies(movie,callback){
  
 
-  setTimeout(()=> {
-    movies.push (movie);
+    setTimeout(()=> {
+      movies.push (movie);
+    
+    setTimeout(()=> callback(movies), 1000)}, 2000);
   
-  setTimeout(()=> callback(movies), 1000)}, 2000);
-
-  }
-  
-
+    }
+ addMovies(myMovie, showMovies)
  
 function newInput(){
 let titleInput = document.getElementById("title").value;
@@ -107,14 +105,15 @@ let newMovie ={
   type: typeInput,
   haveWatched: haveWatchedOption
 }
-movies.push(newMovie);
+//movies.push(newMovie);
+addMovies(newMovie, showMovies);
+//showMovies(([...new Set(movies)]))
 }
-  
 
-let button = document.getElementById("saveMovie");
-button.addEventListener("click", newInput);
 
-addMovies(myMovie, showMovies);
+let button = document.getElementById("saveMovie").addEventListener("click", newInput);
+
+
 
 
 
