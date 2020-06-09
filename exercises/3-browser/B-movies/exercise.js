@@ -64,13 +64,24 @@ var movies = [
 function showMovies(movies){
  let allMovies = document.getElementById("movies-number");
  allMovies.innerHTML = movies.length;
+ //remove all child elements but the first one from all-movies
+ 
+ //let element = document.getElementById("all-movies");
+ //while(element.childNodes.length>1){
+   //element.removeChild(element.lastChild);
+ //}
  movies.forEach (movie => {
    let p = document.createElement ("p");
    let displayMovies = document.getElementById ("all-movies");
+  
    displayMovies.appendChild (p);
    p.innerHTML = movie.title + " , " + movie.director;
+ 
+  
  })
+ 
 }
+
 
 
 // create a new movie object for your favorite movie
@@ -93,8 +104,15 @@ let myMovie =
   
     }
  addMovies(myMovie, showMovies)
+
+  
+
  
-function newInput(){
+function newInput(){ 
+  let displayMovies = document.getElementById("all-movies")
+  while(displayMovies.childNodes.length>2){
+    displayMovies.removeChild(displayMovies.lastChild);
+  }
 let titleInput = document.getElementById("title").value;
 let directorInput = document.getElementById("director").value;
 let typeInput = document.getElementById("type").value;
@@ -105,13 +123,18 @@ let newMovie ={
   type: typeInput,
   haveWatched: haveWatchedOption
 }
+
 //movies.push(newMovie);
+
+
 addMovies(newMovie, showMovies);
+
 //showMovies(([...new Set(movies)]))
 }
 
 
-let button = document.getElementById("saveMovie").addEventListener("click", newInput);
+
+let button = document.getElementById("saveMovie").addEventListener("click",newInput);
 
 
 
