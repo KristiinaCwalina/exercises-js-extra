@@ -62,10 +62,9 @@ var movies = [
 function showMovies(movies) {
   let allMovies = document.getElementById("movies-number");
   allMovies.innerHTML = movies.length;
+  let displayMovies = document.getElementById("all-movies");
   movies.forEach((movie) => {
     let p = document.createElement("p");
-    let displayMovies = document.getElementById("all-movies");
-
     displayMovies.appendChild(p);
     p.innerHTML = movie.title + " , " + movie.director;
   });
@@ -81,7 +80,7 @@ let myMovie = {
 function addMovies(movie, callback) {
   setTimeout(() => {
     movies.push(movie);
-    setTimeout(() => callback(movies), 1000);
+    callback(movies);
   }, 2000);
 }
 addMovies(myMovie, showMovies);
